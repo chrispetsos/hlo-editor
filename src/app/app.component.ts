@@ -10,6 +10,7 @@ import {Constraint} from './constraint';
 })
 export class AppComponent implements OnInit {
     title = 'HLO Editor';
+    hlo_contraints: Constraint[];
     ngOnInit() {
         // Define a JSON object (could come from a HTTP service, parsed with JSON.parse() if necessary)
         const jsonObject: object = {
@@ -109,8 +110,8 @@ export class AppComponent implements OnInit {
         let sparql_response: SparqlResponse;
         try {
             sparql_response = jsonConvert.deserialize(jsonObject, SparqlResponse);
-            const constraints = sparql_response.results.constraints;
-            for (const constraint of constraints) {
+            this.hlo_contraints = sparql_response.results.constraints;
+            for (const constraint of this.hlo_contraints) {
                 constraint.printInfo();
             }
         } catch (e) {
