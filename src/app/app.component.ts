@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {JsonConvert, OperationMode, ValueCheckingMode} from 'json2typescript';
 import {SparqlResponse} from './sparql_response';
+import {Constraint} from './constraint';
 
 @Component({
   selector: 'app-root',
@@ -108,7 +109,10 @@ export class AppComponent implements OnInit {
         let sparql_response: SparqlResponse;
         try {
             sparql_response = jsonConvert.deserialize(jsonObject, SparqlResponse);
-            sparql_response.results.constraints[0].printInfo();
+            const constraints = sparql_response.results.constraints;
+            for (const constraint of constraints) {
+                constraint.printInfo();
+            }
         } catch (e) {
             console.log((<Error>e));
         }
