@@ -1,3 +1,4 @@
+import { Cardinality } from './cardinality';
 import {Component, OnInit} from '@angular/core';
 import {JsonConvert, OperationMode, ValueCheckingMode} from 'json2typescript';
 import {SparqlResponse} from './sparql_response';
@@ -11,6 +12,11 @@ import {Constraint} from './constraint';
 export class AppComponent implements OnInit {
     title = 'HLO Editor';
     hlo_contraints: Constraint[];
+    cardinalities: Cardinality[] = [
+          new Cardinality('http://www.w3.org/2002/07/owl#qualifiedCardinality', 'Exactly'),
+          new Cardinality('http://www.w3.org/2002/07/owl#minQualifiedCardinality', 'Minimum'),
+          new Cardinality('http://www.w3.org/2002/07/owl#maxQualifiedCardinality', 'Maximum'),
+    ];
     ngOnInit() {
         // Define a JSON object (could come from a HTTP service, parsed with JSON.parse() if necessary)
         const jsonObject: object = {

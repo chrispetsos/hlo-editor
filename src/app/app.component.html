@@ -19,7 +19,15 @@
 		</tr>
 		<tr>
 			<td>Cardinality</td>
-			<td>{{hlo_contraint.cardinality_type.value}} {{hlo_contraint.cardinality.value}}</td>
+			<td>
+				<select [(ngModel)]="hlo_contraint.cardinality_type.value">
+				  <option *ngFor="let cardinality of cardinalities" value= {{cardinality.rdf_name}}>
+				    {{cardinality.friendly_name}}
+				  </option>
+				</select>
+				{{hlo_contraint.cardinality.value}}		
+			</td>
+			<!-- <td>{{hlo_contraint.cardinality_type.value}} {{hlo_contraint.cardinality.value}}</td> -->
 		</tr>
 	</table>
 	<hr>
