@@ -117,11 +117,15 @@ export class AppComponent implements OnInit {
         try {
             sparql_response = jsonConvert.deserialize(jsonObject, SparqlResponse);
             this.hlo_contraints = sparql_response.results.constraints;
-            for (const constraint of this.hlo_contraints) {
-                constraint.printInfo();
-            }
+            this.printInfo();
         } catch (e) {
             console.log((<Error>e));
         }
-  }
+    }
+
+    printInfo() {
+        for (const constraint of this.hlo_contraints) {
+            constraint.printInfo();
+        }
+    }
 }
