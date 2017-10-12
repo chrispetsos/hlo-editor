@@ -4,9 +4,23 @@
   </h1>
 </div>
 <div *ngFor="let hlo_contraint of hlo_contraints">
-	<div>Class {{hlo_contraint.restricted_class.value}}</div>
-	<div>must be connected with class {{hlo_contraint.on_class.value}}</div>
-	<div>via property {{hlo_contraint.on_property.value}}</div>
-	<div>{{hlo_contraint.cardinality_type.value}} {{hlo_contraint.cardinality.value}} times</div>
+	<table>
+		<tr>
+			<td>Source Class</td>
+			<td>{{hlo_contraint.restricted_class.value}}</td>
+		</tr>
+		<tr>
+			<td>Target Class</td>
+			<td>{{hlo_contraint.on_class.value}}</td>
+		</tr>
+		<tr>
+			<td>Property</td>
+			<td>{{hlo_contraint.on_property.value}}</td>
+		</tr>
+		<tr>
+			<td>Cardinality</td>
+			<td>{{hlo_contraint.cardinality_type.value}} {{hlo_contraint.cardinality.value}}</td>
+		</tr>
+	</table>
 	<hr>
 </div>
