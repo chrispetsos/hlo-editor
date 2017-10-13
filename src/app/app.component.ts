@@ -4,7 +4,7 @@ import {JsonConvert, OperationMode, ValueCheckingMode} from 'json2typescript';
 import {Constraint} from './constraint';
 import { ContextModelClass } from './context_model_class';
 import { ContextModelProperty } from './context_model_property';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -100,5 +100,17 @@ export class AppComponent implements OnInit {
             rdfConstraints += constraint.toRDF();
         }
         console.log(rdfConstraints);
+
+        // first delete existing constraints
+        this.http
+          .delete('http://localhost:3030/constraints?default')
+          .subscribe(data => {
+            // then post all constraints
+            this.http
+              .post('http://localhost:3030/constraints/data', rdfConstraints, {
+                headers: new HttpHeaders().set('Content-Type', 'text/turtle'),
+              })
+              .subscribe();
+        });
     }
 }
