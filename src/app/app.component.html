@@ -7,11 +7,24 @@
 	<table>
 		<tr>
 			<td>Source Class</td>
-			<td>{{hlo_contraint.restricted_class.value}}</td>
+			<td>
+				<select [(ngModel)]="hlo_contraint.restricted_class.value">
+				  <option *ngFor="let cm_class of cm_classes" value= {{cm_class.rdf_name.value}}>
+				    {{cm_class.rdf_name.value}}
+				  </option>
+				</select>
+			</td>
 		</tr>
 		<tr>
 			<td>Target Class</td>
-			<td>{{hlo_contraint.on_class.value}}</td>
+			<td>
+				<select [(ngModel)]="hlo_contraint.on_class.value">
+				  <option *ngFor="let cm_class of cm_classes" value= {{cm_class.rdf_name.value}}>
+				    {{cm_class.rdf_name.value}}
+				  </option>
+				</select>
+			</td>
+			<!-- <td>{{hlo_contraint.on_class.value}}</td> -->
 		</tr>
 		<tr>
 			<td>Property</td>

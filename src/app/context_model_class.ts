@@ -5,10 +5,10 @@ import {JsonObject, JsonProperty} from 'json2typescript';
 export class ContextModelClass {
 
     @JsonProperty('class', Value)
-    cm_class: Value = undefined;
+    rdf_name: Value = undefined;
 
     printInfo() {
-        console.log('cm_class = ' + this.cm_class.value);
+        console.log('cm_class = ' + this.rdf_name.value);
     }
 
 }
