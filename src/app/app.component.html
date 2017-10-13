@@ -17,7 +17,14 @@
 		</tr>
 		<tr>
 			<td>Property</td>
-			<td>{{hlo_contraint.on_property.value}}</td>
+			<td>
+				<select [(ngModel)]="hlo_contraint.on_property.value">
+				  <option *ngFor="let cm_property of cm_properties" value= {{cm_property.rdf_name.value}}>
+				    {{cm_property.rdf_name.value}}
+				  </option>
+				</select>
+			</td>
+			<!-- <td>{{hlo_contraint.on_property.value}}</td> -->
 		</tr>
 		<tr>
 			<td>Target Class</td>

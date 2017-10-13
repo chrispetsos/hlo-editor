@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {JsonConvert, OperationMode, ValueCheckingMode} from 'json2typescript';
 import {Constraint} from './constraint';
 import { ContextModelClass } from './context_model_class';
+import { ContextModelProperty } from './context_model_property';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
     title = 'HLO Editor';
     hlo_contraints: Constraint[];
     cm_classes: ContextModelClass[];
+    cm_properties: ContextModelProperty[];
     cardinalities: Cardinality[] = [
           new Cardinality('http://www.w3.org/2002/07/owl#qualifiedCardinality', 'Exactly'),
           new Cardinality('http://www.w3.org/2002/07/owl#minQualifiedCardinality', 'Minimum'),
@@ -522,6 +524,433 @@ export class AppComponent implements OnInit {
           }
         };
 
+        const jsonContextModelProperties: object = {
+          'head': {
+            'vars': [ 'property' ]
+          } ,
+          'results': {
+            'bindings': [
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasActor' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasUGThreshold' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasHour' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#isVolumeEncrypted' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/psm/2016/05/20#hasActionStatus' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasABACRule' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pbe#belongsToCryptoPolicySet' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasPointCoordinates' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasYear' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasAction' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasFileName' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasRectangularRangeHeight' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/psm/2016/05/20#hasTarget' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasUCTThreshold' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasMinute' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/dsm/2016/05/20#hasAsymmetricKeySize' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#refersToSubject' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasName' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasUTIThreshold' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasLocation' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasPolicyCombiningAlgorithm' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasVolumeType' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasAddress' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasSecond' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasNonRelationalType' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#description' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasPatternParameter' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pbdfd#hasControlledObject' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#handler' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#refersToEconomicUnion' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/dsm/2016/05/20#hasCurve' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#refersToObject' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pbe#hasBootStrappingCryptoRule' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#supportsEncryptedStorageStationary' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/dsm/2016/05/20#hasPrivacyConstraint' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasStationaryOS' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pbdfd#belongsToDFDPolicySet' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#refersToContinentalUnion' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasFileType' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasRole' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasRectangularRangeWidth' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasSecurityProtocolImplementation' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#addressRegion' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/dsm/2016/05/20#hasSymmetricBlockSize' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pbdfd#hasDFDPolicySet' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#refersToPermission' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasAuthenticationMethod' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasConnectionSecurity' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasPermission' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasPattern' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pwd#hasRule' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasRoomNumber' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasTelecommunicationsProvider' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasBeginningDay' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasIPAddressRange' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasMetricUnit' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasBeginning' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#refersTo' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasUTThreshold' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasDay' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#category' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#after' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasMobileOS' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pwd#belongsToPolicySet' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#addressLocality' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasCircularRadius' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/psm/2016/05/20#hasStartTime' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasConnectionType' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/dsm/2016/05/20#hasModeofOperation' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#legalName' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#latitude' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasUDTThreshold' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasDeviceType' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasAuthorizationMethod' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasTimeWindow' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasConnectionMetric' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasZone' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/dsm/2016/05/20#numberOfVMs' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pbe#hasCryptoPolicySet' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasIMSI' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#streetAddress' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasPolicyContextExpression' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#volumeOutputSpeed' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/dsm/2016/05/20#numberOfPhysicalLocations' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasBuildingNumber' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#before' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#packageName' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#isChildOf' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/dsm/2016/05/20#numberOfServers' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasEnd' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasUCSThreshold' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasIdentityType' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/psm/2016/05/20#hasResult' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasControlledObject' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasTimezone' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#belongsToABACPolicySet' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasBrand' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasAccessedObject' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasDownloadRate' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#supportsEncryptedStorageMobile' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasPolicySetCombiningAlgorithm' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pbe#hasCryptoElement' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasRelationalType' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pbe#hasControlledObject' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasEndDay' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasFilePath' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasUploadRate' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasAreaCoordinates' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasAuthorisation' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasContextExpression' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasTarget' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasDomain' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#addressCountry' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasIPAddress' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasUAThreshold' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pbdfd#hasBootstrappingDFDRule' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasFloorNumber' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/dsm/2016/05/20#hasSymmetricKeySize' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/dsm/2016/05/20#hasFragRow' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasPort' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#elevation' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#postalCode' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#volumeInputSpeed' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pbdfd#hasDFDElement' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasDUNS' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasPolicySetContextExpression' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasSubnet' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#longitude' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/cpsm/2016/05/20#hasUAOThreshold' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasABACPolicySet' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasMonth' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasIMEI' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/dsm/2016/05/20#hasFragColumn' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/psm/2016/05/20#hasEndTime' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasArea' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#hasEndpoint' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasEvaluationResult' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword-project.eu/ontologies/casm/2016/05/20#name' }
+              } ,
+              {
+                'property': { 'type': 'uri' , 'value': 'http://www.paasword.eu/security-policy/seerc/pac#hasParameter' }
+              }
+            ]
+          }
+        };
+
         // Choose your settings
         // Check the detailed reference in the chapter "JsonConvert class properties and methods"
         const jsonConvert: JsonConvert = new JsonConvert();
@@ -534,6 +963,7 @@ export class AppComponent implements OnInit {
             // sparql_response = jsonConvert.deserialize(jsonConstraints, SparqlResponse);
             this.hlo_contraints = jsonConvert.deserialize(JSON.parse(JSON.stringify(jsonConstraints)).results.bindings, Constraint);
             this.cm_classes = jsonConvert.deserialize(JSON.parse(JSON.stringify(jsonContextModelClasses)).results.bindings, ContextModelClass);
+            this.cm_properties = jsonConvert.deserialize(JSON.parse(JSON.stringify(jsonContextModelProperties)).results.bindings, ContextModelProperty);
             this.printInfo();
         } catch (e) {
             console.log((<Error>e));
@@ -547,6 +977,10 @@ export class AppComponent implements OnInit {
 
         for (const cm_class of this.cm_classes) {
           cm_class.printInfo();
+        }
+
+        for (const cm_property of this.cm_properties) {
+          cm_property.printInfo();
         }
 
     }
