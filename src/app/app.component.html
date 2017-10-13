@@ -3,6 +3,10 @@
     {{title}}
   </h1>
 </div>
+<div>
+	<button (click)="addConstraint()">Add new constraint</button>
+</div>
+<hr>
 <div *ngFor="let hlo_contraint of hlo_contraints">
 	<table>
 		<tr>
@@ -24,7 +28,6 @@
 				  </option>
 				</select>
 			</td>
-			<!-- <td>{{hlo_contraint.on_property.value}}</td> -->
 		</tr>
 		<tr>
 			<td>Target Class</td>

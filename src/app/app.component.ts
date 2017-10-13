@@ -990,4 +990,8 @@ export class AppComponent implements OnInit {
            this.hlo_contraints.splice(index, 1);
         }
     }
+
+    addConstraint() {
+        this.hlo_contraints.unshift(new Constraint());
+    }
 }
