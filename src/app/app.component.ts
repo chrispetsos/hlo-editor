@@ -1,7 +1,6 @@
 import { Cardinality } from './cardinality';
 import {Component, OnInit} from '@angular/core';
 import {JsonConvert, OperationMode, ValueCheckingMode} from 'json2typescript';
-import {SparqlResponse} from './sparql_response';
 import {Constraint} from './constraint';
 import { ContextModelClass } from './context_model_class';
 
