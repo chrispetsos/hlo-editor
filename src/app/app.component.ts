@@ -975,13 +975,19 @@ export class AppComponent implements OnInit {
             constraint.printInfo();
         }
 
-        for (const cm_class of this.cm_classes) {
-          cm_class.printInfo();
-        }
+//        for (const cm_class of this.cm_classes) {
+//          cm_class.printInfo();
+//        }
+//
+//        for (const cm_property of this.cm_properties) {
+//          cm_property.printInfo();
+//        }
+    }
 
-        for (const cm_property of this.cm_properties) {
-          cm_property.printInfo();
+    deleteConstraint(constraint: Constraint) {
+        const index = this.hlo_contraints.indexOf(constraint, 0);
+        if (index > -1) {
+           this.hlo_contraints.splice(index, 1);
         }
-
     }
 }
