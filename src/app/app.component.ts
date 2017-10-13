@@ -93,4 +93,12 @@ export class AppComponent implements OnInit {
     addConstraint() {
         this.hlo_contraints.unshift(new Constraint());
     }
+
+    saveConstraints() {
+        let rdfConstraints = '';
+        for (const constraint of this.hlo_contraints) {
+            rdfConstraints += constraint.toRDF();
+        }
+        console.log(rdfConstraints);
+    }
 }
