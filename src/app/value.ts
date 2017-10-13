@@ -4,5 +4,5 @@ import {JsonObject, JsonProperty} from 'json2typescript';
 export class Value {
 
     @JsonProperty('value', String)
-    value: string = undefined;
+    value = '';
 }

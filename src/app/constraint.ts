@@ -5,19 +5,19 @@ import {JsonObject, JsonProperty} from 'json2typescript';
 export class Constraint {
 
     @JsonProperty('restricted_class', Value)
-    restricted_class: Value = undefined;
+    restricted_class: Value = new Value();
 
     @JsonProperty('on_property', Value)
-    on_property: Value = undefined;
+    on_property: Value = new Value();
 
     @JsonProperty('cardinality_type', Value)
-    cardinality_type: Value = undefined;
+    cardinality_type: Value = new Value();
 
     @JsonProperty('cardinality', Value)
-    cardinality: Value = undefined;
+    cardinality: Value = new Value();
 
     @JsonProperty('on_class', Value)
-    on_class: Value = undefined;
+    on_class: Value = new Value();
 
     printInfo() {
         console.log('restricted_class = ' + this.restricted_class.value + ', ' +
